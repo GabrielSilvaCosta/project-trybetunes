@@ -23,6 +23,7 @@ class Login extends Component {
   handleButtonClick = async (event) => {
     const { history } = this.props;
     const numero = 3;
+    // prvine o comportamento padrão evento
     event.preventDefault();
     const { name } = this.state;
     if (name.length >= numero) {
@@ -37,7 +38,7 @@ class Login extends Component {
 
   render() {
     const { name, loading } = this.state;
-    const numero = 3; // Moved the constant declaration to the render method
+    const numero = 3;
     const isButtonDisabled = name.length < numero || loading;
 
     return (
