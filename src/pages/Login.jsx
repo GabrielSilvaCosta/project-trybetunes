@@ -45,9 +45,9 @@ class Login extends Component {
       <div data-testid="page-login">
         <form>
           <label htmlFor="name">
-            Nome
             <input
               data-testid="login-name-input"
+              placeholder="Digite seu Nome"
               type="text"
               name="name"
               id="name"
