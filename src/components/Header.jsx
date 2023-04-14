@@ -14,6 +14,7 @@ class Header extends Component {
   // tentar chamar a função getUser
   // recuperar usuario do componete
   // com nome do usuario recuperado
+  // esta tipo salvando no local storage
   async componentDidMount() {
     try {
       const users = await getUser();
