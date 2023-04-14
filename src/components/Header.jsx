@@ -36,7 +36,7 @@ class Header extends Component {
         {loading ? (
           'Carregando...'
         ) : (
-          <p data-testid="header-user-name">{`${userName} usuário inválido`}</p>
+          <p data-testid="header-user-name">{`${userName} Bem vindo`}</p>
         )}
         <nav>
           <Link data-testid="link-to-search" to="/search">Pesquisa</Link>

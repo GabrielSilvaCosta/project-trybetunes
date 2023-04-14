@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class MusicCard extends React.Component {
@@ -33,7 +33,8 @@ class MusicCard extends React.Component {
     try {
       if (isFavorite) {
         // Remove a música da lista de favoritos
-        await addSong(music, false);
+        // requisito 11
+        await removeSong(music);
         this.setState({ isFavorite: false });
       } else {
         // Adiciona a música à lista de favoritos
