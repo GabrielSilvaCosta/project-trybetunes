@@ -1,20 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import Loading from './Loading';
 
 class MusicCard extends React.Component {
-  // estado inicial como falso
-
   state = {
     isFavorite: false,
-    isLoading: false,
+    isLoading: true, // Inicialmente definimos isLoading como true para exibir "Carregando..."
+    // enquanto aguardamos a resposta da API
   };
+
+  async componentDidMount() {
+    // Ao montar o componente,
+    // chamamos a função getFavoriteSongs para recuperar a lista de músicas favoritas
+    try {
+      const favorite = await getFavoriteSongs();
+      // Verificamos se a música atual é uma das favoritas retornadas pela API
+      const { music } = this.props;
+      const isFavorite = favorite.some((eleme) => eleme.trackId === music.trackId);
+      this.setState({ isFavorite, isLoading: false });
+    } catch (error) {
+      console.error(error);
+      this.setState({ isLoading: false });
+    }
+  }
 
   handleCheckbox = async () => {
     const { music } = this.props;
     const { isFavorite } = this.state;
-
-    // Atualiza o estado para exibir estado carregamento
     this.setState({ isLoading: true });
 
     try {
@@ -30,7 +43,7 @@ class MusicCard extends React.Component {
     } catch (error) {
       console.error(error);
     } finally {
-      // Atualiza o estado para esconder o status do carregamento
+      //  // Atualiza o estado para esconder o status do carregamento
       this.setState({ isLoading: false });
     }
   };
@@ -57,10 +70,11 @@ class MusicCard extends React.Component {
             onChange={ this.handleCheckbox }
             data-testid={ `checkbox-music-${music.trackId}` }
             disabled={ isLoading }
-            // verifica se esta carregando ou não
+            // exibi o loading enquanto loading for true
           />
         </label>
-        {isLoading && <p>Carregando...</p>}
+        {isLoading && <Loading />}
+        {' '}
       </div>
     );
   }
