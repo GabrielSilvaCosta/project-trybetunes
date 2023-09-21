@@ -11,7 +11,13 @@ import Header from './components/Header';
 
 class App extends Component {
   render() {
-    <Header />;
+    <div>
+      <Header />
+      ;
+      <Profile />
+      ;
+
+    </div>;
     return (
 
       <BrowserRouter>

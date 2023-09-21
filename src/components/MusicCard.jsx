@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
+import '../musicCard.css';
 
 class MusicCard extends React.Component {
   state = {
@@ -33,6 +34,7 @@ class MusicCard extends React.Component {
     try {
       if (isFavorite) {
         // Remove a música da lista de favoritos
+        // objeto que tem informação de uma musica
         // requisito 11
         await removeSong(music);
         this.setState({ isFavorite: false });
@@ -54,9 +56,14 @@ class MusicCard extends React.Component {
     const { isFavorite, isLoading } = this.state;
 
     return (
-      <div data-testid="music-card">
-        <h2 data-testid="music-name">{music.trackName}</h2>
-        <audio data-testid="audio-component" src={ music.previewUrl } controls>
+      <div className="music-card" data-testid="music-card">
+        <h2 className="music-name" data-testid="music-name">{music.trackName}</h2>
+        <audio
+          className="audio-component"
+          data-testid="audio-component"
+          src={ music.previewUrl }
+          controls
+        >
           <track kind="captions" />
           Seu navegador não suporta o elemento
           {' '}
@@ -64,18 +71,16 @@ class MusicCard extends React.Component {
           .
         </audio>
         <label>
-          Favorita
+          ❤️
           <input
             type="checkbox"
             checked={ isFavorite }
             onChange={ this.handleCheckbox }
             data-testid={ `checkbox-music-${music.trackId}` }
             disabled={ isLoading }
-            // exibi o loading enquanto loading for true
           />
         </label>
         {isLoading && <Loading />}
-        {' '}
       </div>
     );
   }

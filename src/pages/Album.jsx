@@ -26,6 +26,7 @@ class Album extends React.Component {
     // lista de musica 2 a diante no array lista de musica
     const musicList = response.slice(1);
     // setamos o estado
+    // depois no processo atualizou info e musicList
     this.setState({ info, musicList });
     // console.log(musicList);
   }

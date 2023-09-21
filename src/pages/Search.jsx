@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import '../Search.css';
 
 class Search extends Component {
   // estado inicial
@@ -18,6 +19,7 @@ class Search extends Component {
   // botão e true se o comprimento maior que 2
   handleSearchClick = ({ target }) => {
     const { name, value } = target;
+    // setamos estado atualizado
     this.setState({
       [name]: value,
       buttonEnable: value.length < 2,
@@ -65,29 +67,33 @@ class Search extends Component {
   renderState = () => {
     const { buttonEnable, name, albums, saved } = this.state;
     return (
-      <label htmlFor="name">
-        <input
-          data-testid="search-artist-input"
-          type="text"
-          name="name"
-          onChange={ this.handleSearchClick }
-          value={ name }
-        />
-        <button
-          data-testid="search-artist-button"
-          type="submit"
-          onClick={ this.getAlbumsUpdate }
-          disabled={ buttonEnable }
-        >
-          Pesquisar
-        </button>
+      <div className="search-container">
+        <label htmlFor="name" className="search-label">
+          <input
+            data-testid="search-artist-input"
+            type="text"
+            name="name" // esse name tem que ser igual o value
+            onChange={ this.handleSearchClick }
+            value={ name }
+            className="search-input"
+          />
+          <button
+            data-testid="search-artist-button"
+            type="submit"
+            onClick={ this.getAlbumsUpdate }
+            disabled={ buttonEnable }
+            className="search-button"
+          >
+            Pesquisar
+          </button>
+        </label>
         {albums.length !== 0 && this.savedAlbum()}
         {albums.length === 0 && saved !== false && (
           // verifica se array de albuns esta salvo
           // se não não vai ser encontrado
-          <p>Nenhum álbum foi encontrado</p>
+          <p className="search-error">Nenhum álbum foi encontrado</p>
         )}
-      </label>
+      </div>
     );
   };
 
@@ -99,17 +105,19 @@ class Search extends Component {
     return (
       <div>
         <Header />
-        <div data-testid="page-search">Pesquisar</div>
+        <div data-testid="page-search" />
         {label ? <Loading /> : this.renderState()}
-        <section>
+        <section className="album-card-container">
+          {' '}
+          {/* Adiciona a classe album-card-container ao elemento section */}
           {albums.map((element) => (
-            <div key={ element.collectionId }>
+            <div className="album-card" key={ element.collectionId }>
               <Link
                 data-testid={ `link-to-album-${element.collectionId}` }
                 to={ `/album/${element.collectionId}` }
               >
-                <div>{element.artistName}</div>
                 <img src={ element.artworkUrl100 } alt={ element.collectionName } />
+                <div>{element.artistName}</div>
                 <div>{element.collectionName}</div>
               </Link>
             </div>

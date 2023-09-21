@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
+import '../Login.css';
 
 class Login extends Component {
   constructor() {
@@ -39,6 +40,7 @@ class Login extends Component {
   render() {
     const { name, loading } = this.state;
     const numero = 3;
+    // verificar se o botão deve estar desabilitado
     const isButtonDisabled = name.length < numero || loading;
 
     return (

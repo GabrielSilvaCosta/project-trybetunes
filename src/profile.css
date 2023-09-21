@@ -1,0 +1,22 @@
+img {
+    max-width: 200px; /* Define a largura máxima da imagem como 200px */
+    max-height: 200px; /* Define a altura máxima da imagem como 200px */
+    border-radius: 50%; /* Define o border-radius como 50% para criar uma imagem circular */
+    object-fit: cover; /* Garante que a imagem será ajustada para preencher o espaço disponível */
+  }
+  
+  
+  .profile-container {
+    align-items: center;
+    height: 100vh;
+    
+  }
+  
+  .profile-card {
+    text-align: center;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    padding: 130px;
+    max-width: 400px;
+    margin: 50px auto 0;
+  }

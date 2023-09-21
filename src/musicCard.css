@@ -1,0 +1,28 @@
+
+  
+  .music-card {
+    flex-basis: calc(10.33% - 10px);
+    margin: 20px;
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+  }
+  
+  .music-card h2 {
+    margin: 0;
+  }
+  
+  .music-card label {
+    margin-top: 10px;
+  }
+  
+  .music-card input {
+    margin-left: 5px;
+  }
+  
+  .music-card audio {
+    width: 100%;
+  }
+  
+  

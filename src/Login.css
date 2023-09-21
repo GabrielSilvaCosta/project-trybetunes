@@ -1,0 +1,71 @@
+[data-testid="page-login"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Defina a altura como 100vh para ocupar toda a altura da tela */
+  }
+
+  body {
+    height: 100vh; /* Adicionei uma altura para ocupar a tela inteira */
+    background-color: #eaeaea
+  }
+  
+  form {
+    text-align: center; /* Centraliza o texto dentro do formulário */
+    width: 520px; /* Largura do formulário */
+    height: 200px; /* Altura do formulário */
+    padding: 120px; /* Espaçamento interno do formulário */
+    border-radius: 10px; /* Borda arredondada do formulário */
+    background-color: white;
+    box-shadow: 0px 0px 5px #000; /* Adiciona uma sombra escura ao formulário */
+    display: flex; /* Adiciona display flex para centralizar os elementos internamente */
+    flex-direction: column; /* Altera a direção do flex para coluna */
+    justify-content: center; /* Centraliza verticalmente os elementos */
+    align-items: center; /* Centraliza horizontalmente os elementos */
+  }
+
+  form {
+    /* ... suas regras de estilo para o input ... */
+    background-image: url('https://trybetunes-ten.vercel.app/static/media/login.e2b4af94.png'); /* URL da imagem que você deseja adicionar */
+    background-size: 200px; /* Tamanho da imagem */
+    background-repeat: no-repeat; /* Não repetir a imagem */
+    background-position: center top 40px; /* Posição da imagem (centro no topo) */
+  }
+  
+  
+  label {
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+     
+  }
+  
+  input {
+    box-sizing: border-box;
+    width: 400px;
+    height: 40px;
+    border: 1px solid #003BE5;
+    border-radius: 100px;
+    margin-bottom: 10px; /* Adiciona margem inferior para separar os elementos */
+    margin-left: auto; /* Centraliza horizontalmente o input */
+    margin-right: auto; /* Centraliza horizontalmente o input */
+    text-align: center;
+    margin-top: 0px; /* Ajusta a margem superior para colar o input com o button */
+  }
+  
+  
+  button {
+    width: 400px;
+    height: 40px;
+    background: #003BE5;
+    border-radius: 100px;
+    margin-left: auto; /* Centraliza horizontalmente o button */
+    margin-right: auto; /* Centraliza horizontalmente o button */
+    color: white;
+    margin-top: 0px; /* Ajusta a margem superior para colar o button com o input */
+  }
+  
+  button:disabled {
+    opacity: 0.5; /* Opacidade reduzida para botão desabilitado */
+    cursor: not-allowed; /* Altere o cursor do mouse para não permitido */
+  }

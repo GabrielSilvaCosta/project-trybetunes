@@ -1,0 +1,34 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+  }
+  
+  /* Estilo para o nome de usuário */
+  .header-user-name {
+    font-size: 24px;
+    margin-right: 20px;
+    color: #000;
+  }
+  
+  /* Estilo para a barra de navegação */
+  .nav {
+    display: flex;
+  }
+  
+  /* Estilo para os links de navegação */
+  .nav-link {
+    margin-right: 20px;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  /* Estilo para os links de navegação quando estão ativos */
+  .nav-link:hover,
+  .nav-link:focus {
+    color: #007bff;
+  }
+  

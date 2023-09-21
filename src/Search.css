@@ -1,0 +1,60 @@
+/* Estilo para o container do formulário de busca */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search-container {
+    position: relative;
+  }
+  
+  .search-label {
+    position: absolute;
+    top: -85%; /* Ajuste o valor aqui para posicionar mais acima */
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  span {
+    margin-bottom: 50px;
+    color: blue; /* Ajuste o valor aqui para baixar a parte do código */
+  }
+  
+  .album-card-container {
+    display: flex; /* Exibe os cards em uma linha flexível */
+    flex-wrap: wrap; /* Quebra para a próxima linha quando não houver espaço suficiente */
+    justify-content: center;
+    /* Centraliza os cards horizontalmente */
+  }
+  
+  /* Estilos adicionais */
+  .album-card {
+    flex: 0 0 calc(12.33% - 15px); /* Altera a largura do card para 33.33% do container, subtraindo 20px para a margem */
+    margin: 10px; /* Define a margem do card */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white; /* Altera a cor de fundo para branco */
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  
+  
+  .album-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    text-decoration: none;
+    /* Remove os sublinhados */
+  }
+  
+  .album-card div {
+    margin-top: 10px;
+    color: black;
+    text-decoration: none; /* Altera a cor do texto para preto */
+    
+  }
+  

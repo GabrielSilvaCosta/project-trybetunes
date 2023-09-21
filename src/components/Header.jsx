@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
+import '../Header.css';
 
 class Header extends Component {
   constructor() {
@@ -32,16 +33,43 @@ class Header extends Component {
     // se não userName não encontrado
     const { userName, loading } = this.state;
     return (
-      <div data-testid="header-component">
+      <div className="header" data-testid="header-component">
         {loading ? (
           'Carregando...'
         ) : (
-          <p data-testid="header-user-name">{`${userName} Bem vindo`}</p>
+          <p
+            className="header-user-name"
+            data-testid="header-user-name"
+          >
+            {` Bem vindo, ${userName}`}
+
+          </p>
         )}
-        <nav>
-          <Link data-testid="link-to-search" to="/search">Pesquisa</Link>
-          <Link data-testid="link-to-favorites" to="/favorites">Musicas Favoritas</Link>
-          <Link data-testid="link-to-profile" to="/profile">Perfil</Link>
+        <nav className="nav">
+          <Link
+            className="nav-link"
+            data-testid="link-to-search"
+            to="/search"
+          >
+            Pesquisar
+
+          </Link>
+          <Link
+            className="nav-link"
+            data-testid="link-to-favorites"
+            to="/favorites"
+          >
+            Musicas Favoritas
+
+          </Link>
+          <Link
+            className="nav-link"
+            data-testid="link-to-profile"
+            to="/profile"
+          >
+            Perfil
+
+          </Link>
         </nav>
       </div>
     );
